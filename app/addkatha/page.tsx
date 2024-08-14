@@ -16,7 +16,8 @@ const AddKatha = () => {
         title: title,
         description: description,
       });
-      alert(res.data.msg);
+      console.log(res);
+      alert(res.data.message);
       router.push("/");
     } catch (err) {
       alert(err);
