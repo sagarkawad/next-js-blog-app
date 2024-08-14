@@ -23,8 +23,8 @@ const TopicsList = async () => {
     <section className="flex flex-col items-around  bg-green-200 p-4 w-3/4">
       {topics.map((el: { _id: any; title: string; description: string }) => {
         return (
-          <div className="flex justify-between">
-            <div key={el._id}>
+          <div className="flex justify-between" key={el._id}>
+            <div>
               <h2 className="font-bold">{el.title}</h2>
               <p>{el.description}</p>
             </div>
