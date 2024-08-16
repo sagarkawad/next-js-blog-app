@@ -14,3 +14,5 @@ export async function GET() {
   const topics = await Topic.find();
   return NextResponse.json({ msg: topics });
 }
+
+

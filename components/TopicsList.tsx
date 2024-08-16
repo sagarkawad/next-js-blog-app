@@ -1,4 +1,7 @@
+"use client";
 import React from "react";
+import axios from "axios";
+import Button from "./Button";
 
 const getTopics = async () => {
   try {
@@ -15,22 +18,38 @@ const getTopics = async () => {
   }
 };
 
+const deleteTopics = async (id: any) => {
+  console.log("inside the delete topics");
+  try {
+    axios.post("http://localhost:3000/api/topics/delete", {
+      id,
+    });
+    alert("katha removed");
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 const TopicsList = async () => {
   const data = await getTopics();
   const topics = data.msg;
   console.log(topics);
   return (
-    <section className="flex flex-col items-around  bg-green-200 p-4 w-3/4">
+    <section className="flex flex-col items-around   p-4 w-3/4">
       {topics.map((el: { _id: any; title: string; description: string }) => {
         return (
-          <div className="flex justify-between" key={el._id}>
+          <div
+            className="flex justify-between bg-green-200 my-2 p-4"
+            key={el._id}
+          >
             <div>
               <h2 className="font-bold">{el.title}</h2>
               <p>{el.description}</p>
             </div>
             <div className="flex">
               <p>✍️</p>
-              <p>✖️</p>
+              {/* <p onClick={() => deleteTopics(el._id)}>✖️</p> */}
+              <Button onClickHandler={() => deleteTopics(el._id)}>✖️</Button>
             </div>
           </div>
         );
