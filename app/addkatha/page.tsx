@@ -19,8 +19,8 @@ const AddKatha = () => {
       console.log(res);
       alert(res.data.message);
       router.push("/");
-    } catch (err) {
-      alert(err);
+    } catch (err: any) {
+      alert(err.message);
     }
   }
 
