@@ -5,9 +5,12 @@ import Button from "./Button";
 
 const getTopics = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/topics", {
-      cache: "no-store",
-    });
+    const res = await fetch(
+      "https://next-js-blog-app-phi.vercel.app/api/topics",
+      {
+        cache: "no-store",
+      }
+    );
 
     if (!res.ok) {
       throw new Error("Failed to fetch topics");
@@ -21,7 +24,7 @@ const getTopics = async () => {
 const deleteTopics = async (id: any) => {
   console.log("inside the delete topics");
   try {
-    axios.post("http://localhost:3000/api/topics/delete", {
+    axios.post("https://next-js-blog-app-phi.vercel.app/api/topics/delete", {
       id,
     });
     alert("katha removed");

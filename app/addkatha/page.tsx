@@ -12,10 +12,13 @@ const AddKatha = () => {
 
   async function postData() {
     try {
-      const res = await axios.post("http://localhost:3000/api/topics", {
-        title: title,
-        description: description,
-      });
+      const res = await axios.post(
+        "https://next-js-blog-app-phi.vercel.app/api/topics",
+        {
+          title: title,
+          description: description,
+        }
+      );
       console.log(res);
       alert(res.data.message);
       router.push("/");
