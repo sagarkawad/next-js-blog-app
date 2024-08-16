@@ -32,7 +32,7 @@ const deleteTopics = async (id: any) => {
 
 const TopicsList = async () => {
   const data = await getTopics();
-  const topics = data.msg;
+  const topics = (data && data.msg) || [];
   console.log(topics);
   return (
     <section className="flex flex-col items-around   p-4 w-3/4">
